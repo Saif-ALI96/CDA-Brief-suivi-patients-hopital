@@ -28,7 +28,7 @@ create table if not exists Lit(
 create table if not exists Sejour(
 	sejour_id SERIAL,
 	date_arrive DATE not null,
-	date_sortie DATE not null,
+	date_sortie DATE,
 	patient_id INT,
 	lit_id INT,
 	primary key  (sejour_id),
@@ -44,40 +44,62 @@ create table if not exists Sejour(
 
 -- Table Patient 
 INSERT INTO Patient (nom, prenom, sexe, date_de_naissance) VALUES
-('Dupont', 'Jean', 'Masculin', '1985-04-12'),
-('Leroy', 'Marie', 'Féminin', '1992-08-23'),
-('Martin', 'Alexandre', 'Masculin', '1976-01-17'),
-('Moreau', 'Chloé', 'Féminin', '2000-05-05'),
-('Petit', 'Lucas', 'Masculin', '1988-12-30');
+('Dupont', 'Jean', 'M', '1985-05-15'),
+('Tremblay', 'Marie', 'F', '1990-12-20'),
+('Smith', 'John', 'M', '1978-08-10'),
+('Dubois', 'Sophie', 'F', '1982-03-25'),
+('Nguyen', 'Minh', 'M', '1995-06-03'),
+('Garcia', 'Maria', 'F', '1970-11-12'),
+('Patel', 'Rajesh', 'M', '1988-09-28'),
+('Leroy', 'Anne', 'F', '1975-04-17'),
+('Kim', 'Minji', 'F', '1993-02-08'),
+('Santos', 'João', 'M', '1980-07-19');
+
 
 
 -- Table Chambre
 INSERT INTO Chambre (numero_de_chambre, nombre_de_lits) VALUES
 (101, 2),
 (102, 1),
-(201, 3),
-(202, 2);
+(103, 3),
+(104, 2),
+(105, 1),
+(106, 2),
+(107, 3),
+(108, 1),
+(109, 2),
+(110, 3);
+
 
 
 -- Table Lit 
 -- Supposons que TRUE représente un lit disponible et FALSE un lit occupé
 INSERT INTO Lit (status, chambre_id) VALUES
-(TRUE, 1),
-(FALSE, 1),
-(TRUE, 2),
-(FALSE, 2),
-(TRUE, 3),
-(FALSE, 3),
-(TRUE, 4),
-(FALSE, 4);
+(true, 1),
+(false, 1),
+(true, 2),
+(true, 3),
+(true, 3),
+(false, 3),
+(false, 4),
+(true, 5),
+(true, 6),
+(false, 6);
 
 -- Table Sejour 
 -- Les dates d'arrivée et de sortie sont formatées en 'AAAA-MM-JJ'
-INSERT INTO Sejour (date_arrive, date_sortie, patient_id, lit_id) VALUES
-('2024-03-01', '2024-03-15', 1, 1),
-('2024-03-05', '2024-03-20', 2, 3),
-('2024-03-10', '2024-03-25', 3, 5),
-('2024-03-12', '2024-03-18', 4, 7);
+INSERT INTO Sejour (date_arrive, patient_id, lit_id) VALUES
+('2024-03-10', 1, 1),
+('2024-03-15', 3, 3),
+('2024-03-20', 5, 4),
+('2024-03-25', 2, 8),
+('2024-03-28', 7, 9),
+('2024-04-02', 4, 2),
+('2024-04-05', 10, 7),
+('2024-04-08', 8, 10),
+('2024-04-12', 6, 5),
+('2024-04-16', 9, 6);
+
 
 
 
