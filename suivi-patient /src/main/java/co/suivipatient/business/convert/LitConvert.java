@@ -75,7 +75,7 @@ public class LitConvert {
      * @param listEntities La liste des entités Lit à convertir.
      * @return La liste des DTOs LitDTO correspondants.
      */
-    List<LitDTO> converListEntityToListDto(List<Lit> listEntities) {
+    public List<LitDTO> converListEntityToListDto(List<Lit> listEntities) {
       List<LitDTO> listLitDTO = new ArrayList<>();
       for (Lit l : listEntities) {
         listLitDTO.add(convertEntityToDto(l));
@@ -90,7 +90,7 @@ public class LitConvert {
      * @param listDTOs La liste des DTOs LitDTO à convertir.
      * @return La liste des entités Lit correspondantes.
      */
-    List<Lit> convertListDtoToListEntity(List<LitDTO> listDTOs){
+    public List<Lit> convertListDtoToListEntity(List<LitDTO> listDTOs){
       List<Lit> listEntities = new ArrayList<>();
       for (LitDTO dto : listDTOs) {
         listEntities.add(convertDtoToEntity(dto));
