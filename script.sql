@@ -31,6 +31,7 @@ create table if not exists Sejour(
 	date_sortie DATE,
 	patient_id INT,
 	lit_id INT,
+	servicee VARCHAR(100),
 	primary key  (sejour_id),
 	constraint fk_patient_sejour 
 		foreign key(patient_id) 
@@ -88,18 +89,18 @@ INSERT INTO Lit (status, chambre_id) VALUES
 
 -- Table Sejour 
 -- Les dates d'arrivée et de sortie sont formatées en 'AAAA-MM-JJ'
-INSERT INTO Sejour (date_arrive, patient_id, lit_id) VALUES
-('2024-03-10', 1, 1),
-('2024-03-15', 3, 3),
-('2024-03-20', 5, 4),
-('2024-03-25', 2, 8),
-('2024-03-28', 7, 9),
-('2024-04-02', 4, 2),
-('2024-04-05', 10, 7),
-('2024-04-08', 8, 10),
-('2024-04-12', 6, 5),
-('2024-04-16', 9, 6);
 
+INSERT INTO Sejour (date_arrive, patient_id, lit_id, servicee) VALUES
+('2024-03-10', 1, 1, 'urgence'),
+('2024-03-15', 3, 3, 'pédiatrie'),
+('2024-03-20', 5, 4, 'chirurgie'),
+('2024-03-25', 2, 8, 'urgence'),
+('2024-03-28', 7, 9, 'pédiatrie'),
+('2024-04-02', 4, 2, 'chirurgie'),
+('2024-04-05', 10, 7, 'urgence'),
+('2024-04-08', 8, 10, 'pédiatrie'),
+('2024-04-12', 6, 5, 'chirurgie'),
+('2024-04-16',  9, 6, 'urgence');
 
 
 
