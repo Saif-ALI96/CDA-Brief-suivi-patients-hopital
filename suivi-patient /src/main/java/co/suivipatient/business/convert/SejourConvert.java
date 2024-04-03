@@ -44,6 +44,7 @@ public class SejourConvert {
     sejourDto.setPatientId(patientDTO);
     LitDTO litDTO = LitConvert.getInstance().convertEntityToDto(sejour.getLitId());
     sejourDto.setLitId(litDTO);
+    sejourDto.setService(sejour.getService());
     sejourDto.setDateArrive(sejour.getDateArrivee());
     sejourDto.setDateSortie(sejour.getDateSortie());
 
@@ -69,6 +70,7 @@ public class SejourConvert {
 
     Lit lit = LitConvert.getInstance().convertDtoToEntity(sejourDTO.getLitId());
     sejourEntity.setLitId(lit);
+    sejourEntity.setService(sejourDTO.getService());
 
     sejourEntity.setDateArrivee(sejourDTO.getDateArrive());
     sejourEntity.setDateSortie(sejourDTO.getDateArrive());
