@@ -1,5 +1,16 @@
 version: "3.8"
 services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/suiviPatient
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db
   db:
     container_name: postgres_container
     image: postgres
@@ -7,7 +18,7 @@ services:
     environment:
       POSTGRES_PASSWORD: root
       POSTGRES_USER: root
-      POSTGRES_DB: suivi_patient
+      POSTGRES_DB: suiviPatient
     ports:
       - "5433:5432"
     volumes:
@@ -25,3 +36,30 @@ services:
 
 volumes:
   pg_data:
+# version: "3.8"
+# services:
+#   db:
+#     container_name: postgres_container
+#     image: postgres
+#     restart: always
+#     environment:
+#       POSTGRES_PASSWORD: root
+#       POSTGRES_USER: root
+#       POSTGRES_DB: suivi_patient
+#     ports:
+#       - "5433:5432"
+#     volumes:
+#       # - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+#       - pg_data:/var/lib/postgresql/data
+
+#   pg-admin:
+#     image: dpage/pgadmin4:6
+#     environment:
+#       PGADMIN_DEFAULT_EMAIL: admin@email.com
+#       PGADMIN_DEFAULT_PASSWORD: admin
+#       PGADMIN_LISTEN_PORT: 5050
+#     ports:
+#       - "5050:5050"
+
+# volumes:
+#   pg_data:
